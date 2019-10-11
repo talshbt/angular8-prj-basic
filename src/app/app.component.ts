@@ -6,4 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  loadedFeature;
+  displayFeatureSelected(featureSelected){
+    this.loadedFeature = featureSelected;
+    console.log(featureSelected);
+  }
 }
