@@ -17,7 +17,6 @@ export class RecipeItemComponent implements OnInit {
 
 
   onSelect(){
-    //method in service that transfer data
     
      this.recipeService.recipeSelected.emit(this.recipe);
     
