@@ -20,6 +20,7 @@ export class RecipeItemComponent implements OnInit {
   onSelect(){
     
      this.recipeService.recipeSelected.emit(this.recipe);
+    //  console.log("balblablab")
     
   }
 }

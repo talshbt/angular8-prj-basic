@@ -12,7 +12,7 @@ export class RecipeService {
    private recipes:Recipe[] = [
         new Recipe('Big Hamburger',
                   'This is simply a test', 
-                  'https://get.pxhere.com/photo/burger-vegetarian-food-dish-hamburger-cuisine-ingredient-breakfast-sandwich-veggie-burger-slider-fast-food-junk-food-produce-sandwich-finger-food-salmon-burger-buffalo-burger-Burger-king-premium-burgers-bun-recipe-cheeseburger-blt-meat-american-food-comfort-food-baked-goods-appetizer-fried-food-Original-chicken-sandwich-patty-1586555.jpg',
+                  'https://upload.wikimedia.org/wikipedia/commons/3/3f/Flickr_-_cyclonebill_-_Burger.jpg',
                   [
                     new Ingerdient('Meat', 1),
                     new Ingerdient('French Fried', 3)
