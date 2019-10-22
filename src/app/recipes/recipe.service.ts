@@ -55,6 +55,12 @@ export class RecipeService {
 
     }
 
+    deleteRecipe(index){
+      this.recipes.splice(index,1);
+      this.recipeChanged.next(this.recipes.slice());
+
+    }
+
 
 }
   
