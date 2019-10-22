@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { FormGroup, FormControl } from '@angular/forms';
 import { RecipeService } from '../recipe.service';
+import { Recipe } from '../recipe.model';
+import { Ingerdient } from 'src/app/shared/ingredient.model';
 
 @Component({
   selector: 'app-recipe-edit',
@@ -20,19 +22,17 @@ export class RecipeEditComponent implements OnInit {
       (params:Params)=>{
         this.id = +params['id'];
         this.editMode = params['id'] != null;
+        this.initForm();
 
       }
     )
 
-    this.initForm();
   }
 
   private initForm(){
     let recipeName = '';
     let recipeImgUrl = '';
     let recipeDescription = '';
-
-
 
     if(this.editMode){
       const recipe = this.recService.getRec(this.id);
@@ -47,6 +47,21 @@ export class RecipeEditComponent implements OnInit {
       'description': new FormControl(recipeDescription),
 
     })
+  }
+
+
+  onSubmit(){
+    console.log(this.recipeForm)
+    // this.recService.addNewRecipe(new Recipe('Sexy Buns',
+    // 'This is simply a test', 
+    // 'https://images.pexels.com/photos/166655/pexels-photo-166655.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260',
+    // [
+    //   new Ingerdient('Buns', 2),
+    //   new Ingerdient('Meat', 4)
+
+    // ]));
+
+
   }
 
 }
