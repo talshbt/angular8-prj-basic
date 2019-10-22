@@ -31,17 +31,16 @@ export class ShoppingListService{
     }
 
     addIngrediens(ingredients: Ingerdient[]){
-    //    for(let ingredient of ingredients){
-    //        this.addIngredient(ingredient);
-
-    //    }
-
+ 
         this.ingerdients.push(...ingredients);
-
-        // this.newIngredientEvent.emit(this.ingerdients.slice());
 
         this.newIngredientEvent.next(this.ingerdients.slice());
 
+    }
+
+    updateIngredient(index, newIngredient: Ingerdient){
+        this.ingerdients[index] = newIngredient;
+        this.newIngredientEvent.next(this.ingerdients.slice());
     }
 
   
