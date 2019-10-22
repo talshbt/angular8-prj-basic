@@ -6,6 +6,7 @@ export class ShoppingListService{
 
     // newIngredientEvent = new EventEmitter<Ingerdient[]>();
     newIngredientEvent = new Subject<Ingerdient[]>();
+    startedEditing = new Subject<number>();
 
     private ingerdients:Ingerdient[] = [
         new Ingerdient("Appels",5),
