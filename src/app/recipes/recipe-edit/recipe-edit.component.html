@@ -3,7 +3,7 @@
         <form [formGroup]="recipeForm" (ngSubmit)="onSubmit()">
             <div class="row">
                 <div class="col-xs-12">
-                    <button type = "submit" class = "btn btn-success"> Save</button>
+                    <button [disabled] = "!recipeForm.valid" type = "submit" class = "btn btn-success"> Save</button>
                     <button type = "button" class = "btn btn-danger"> Cancel</button>
 
                 </div>
@@ -17,9 +17,10 @@
                                 type = "text" 
                                 id = "name" 
                                 class= "form-control"
-                                formControlName="name"
-
-                                >
+                                formControlName="name">
+                            <span
+                            *ngIf="!recipeForm.get('name').valid && recipeForm.get('name').touched"
+                            class="help-block">Please enter a valid name!</span>
                     
                     </div>
                     <div class="form-group">
@@ -29,6 +30,9 @@
                                 id = "imagePath" 
                                 class= "form-control"
                                 formControlName="imgUrl">
+                            <span
+                            *ngIf="!recipeForm.get('imgUrl').valid && recipeForm.get('imgUrl').touched"
+                            class="help-block">Please enter a valid Image Url!</span>
                     </div>
                 </div>
             </div>
@@ -48,6 +52,9 @@
                                 formControlName="description"
                                 class= "form-control" rows = "6">
                             </textarea>
+                            <span
+                            *ngIf="!recipeForm.get('description').valid && recipeForm.get('description').touched"
+                            class="help-block">Please enter a valid Image Url!</span>
                     </div>
                 </div>
             </div>
@@ -61,6 +68,7 @@
                                 type = "text" 
                                 class= "form-control"
                                 formControlName="name">
+                                
                             </div>
 
                             <div class="col-xs-2">
@@ -74,7 +82,10 @@
                                 <button class = "btn btn-danger">X</button>
                         
                             </div>
-                    </div>  
+                    </div>
+                    <span
+                    *ngIf="!recipeForm.valid && recipeForm.touched"
+                    class="help-block">Please enter valid data!</span>  
                     <hr>
                     <div class="row">
                         <div class="col-xs-12">
