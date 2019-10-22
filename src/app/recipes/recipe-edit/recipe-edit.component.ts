@@ -59,11 +59,13 @@ export class RecipeEditComponent implements OnInit {
 
     this.recipeForm = new FormGroup({
       'name': new FormControl(recipeName, Validators.required),
-      'imgUrl': new FormControl(recipeImgUrl,Validators.required),
+      'imagePath': new FormControl(recipeImgUrl, Validators.required),
       'description': new FormControl(recipeDescription,Validators.required),
       'ingredients':recipeIngredients
 
     })
+
+
   }
 
 
@@ -74,21 +76,23 @@ export class RecipeEditComponent implements OnInit {
     }else{
       this.recService.addNewRecipe(this.recipeForm.value);
     }
-
-    
+    this.recipeForm.reset();
   }
 
   onAddIngredient(){
-   (<FormArray>this.recipeForm.get('ingredients')).push(new FormGroup({
-     'name':new FormControl(null,Validators.required),
-     'amount':new FormControl(null,[Validators.required,Validators.pattern(/^[1-9]+[0-9]*$/)])
-   }));
-
+    (<FormArray>this.recipeForm.get('ingredients')).push(
+      new FormGroup({
+        'name': new FormControl(null, Validators.required),
+        'amount': new FormControl(null, [
+          Validators.required,
+          Validators.pattern(/^[1-9]+[0-9]*$/)
+        ])
+      })
+    );
   }
 
   onCancel(){
-    this.router.navigate(['../../'], {relativeTo:this.activateRoute});
-
+    this.router.navigate(['../'], {relativeTo:this.activateRoute});
   }
 
 }
